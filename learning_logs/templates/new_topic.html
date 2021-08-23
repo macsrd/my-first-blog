@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- <p>Dodaj nowy temat:</p> -->
+<p class="bg-primary text-white">Dodaj nowy temat:</p>
+<!-- <form class="form-inline" action="{% url 'learning_logs:new_topic' %}" method='post'> -->
+<form action="{% url 'learning_logs:new_topic' %}" method='post'>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<!-- <button name="submit">Dodaj temat</button> -->
+	<input type="submit" class="btn btn-info" value="Dodaj Temat">
+</form>
+
+{% endblock content %}

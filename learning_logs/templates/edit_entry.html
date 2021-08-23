@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+<p><h4><span class="badge badge-primary">Edycja wpisu:</span></h4></p>
+
+<form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" class="btn btn-info" value="Zapisz zmiany">
+</form>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+<h3><span class="badge badge-primary">Dodaj nowy wpis:</span></h3>
+<form action="{% url 'learning_logs:new_entry' topic.id %}" method='post'>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<!-- <button name="submit">Dodaj wpis</button> -->
+	<input type="submit" class="btn btn-info" value="Dodaj Wpis">
+</form>
+
+{% endblock content %}
